@@ -7,7 +7,7 @@ Para instalar el código una vez descargado, basta con ejecutar
 ```sh
 pip install -e {PATH} --user
 ```
-donde PATH es la ubicación hasta el directorio descomprimido "river-main"
+donde PATH es la ubicación hasta el directorio descomprimido "TFG-River-Rensemble-main"
 
 ## ⚡️  Guía rápida
 Como ejemplo, utilizaremos el [dataset de phishing](http://archive.ics.uci.edu/ml/datasets/Website+Phishing). Aquí añadimos el código necesario para cargarlo y observar la primera instancia:
