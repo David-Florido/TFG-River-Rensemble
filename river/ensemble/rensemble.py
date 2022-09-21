@@ -27,10 +27,11 @@ class BaseRensembler():
         self.seed = seed
         self._rng = np.random.RandomState(seed)
         self.unanimity_check = unanimity_check
-        self.n_unanimities_detected = 0
         self.drift_check = drift_check
-        self.n_drifts_detected = 0
 
+        if self.unanimity_check:
+            self.n_unanimities_detected = 0
+        
         module_cont = 0
         for module_tuple in module_tuples:
             n_modules = module_tuple[0]
@@ -40,28 +41,10 @@ class BaseRensembler():
                 model = model_tuple[0]
                 self.modules[module_cont] =  [copy.deepcopy(model) for _ in range(n_models)]
                 if self.drift_check != "off":
+                    self.n_drifts_detected = 0
                     self.drift_detectors[module_cont] = [copy.deepcopy(ADWIN()) for _ in range(n_models)]
                 self.cfc[module_cont] = copy.deepcopy(cfc)
                 module_cont += 1
-
-
-    def is_unanimous(self, predictions: list):
-        agg = Counter()
-        unanimous = False
-        size = len(predictions)
-        predIter = iter(predictions)
-        while (pred := next(predIter, None)) is not None and not unanimous:
-            agg[pred] += 1
-            if int(agg.most_common(1)[0][1]) > size*self.unanimity_check:
-                unanimous = True
-
-        if unanimous:
-            self.n_unanimities_detected += 1
-            res = agg.most_common(1)[0][0]
-        else:
-            res = False
-        return res
-
     
     def learn_one(self, x, y):
         for module in self.modules:
@@ -156,6 +139,23 @@ class RensemblerClassifier(BaseRensembler, base.Classifier):
     >>> evaluate.progressive_val_score(dataset, model, metric)
     F1: 87.89%
     """
+
+    def is_unanimous(self, predictions: list):
+        agg = Counter()
+        unanimous = False
+        size = len(predictions)
+        predIter = iter(predictions)
+        while (pred := next(predIter, None)) is not None and not unanimous:
+            agg[pred] += 1
+            if int(agg.most_common(1)[0][1]) > size*self.unanimity_check:
+                unanimous = True
+
+        if unanimous:
+            self.n_unanimities_detected += 1
+            res = agg.most_common(1)[0][0]
+        else:
+            res = False
+        return res
     
     def predict_proba_one(self, x):
         """Averages the predictions of each classifier."""
