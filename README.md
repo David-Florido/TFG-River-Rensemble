@@ -57,7 +57,7 @@ base_models   =  [(3, (base_classifier, 5))]
 model = ensemble.RensemblerClassifier(base_models, meta_classifier, lam=1.0, seed=13, unanimity_check=False, drift_check = "off")
 ```
 
-Una vez generado el modelo a utilizar, podemos comprobar su funcionamiento:
+Tras haber generado el modelo a utilizar, podemos comprobar su funcionamiento:
 ```python
 from river import metrics
 metric = metrics.Accuracy()
