@@ -71,7 +71,7 @@ def test_then_train(data, model_list, model_name_list, dataset_name):
         plt.ylabel('time (s)')
         plt.bar(model_name_list[i], timestamps[i])
         plt.grid(visible=True)
-    plt.savefig(f'./results/plots/time/{dataset_name}.png')
+    plt.savefig(f'./results/plots/time/{dataset_name}_timestamps.png')
     time_text.close()
     plt.clf()
     
@@ -81,7 +81,7 @@ def test_then_train(data, model_list, model_name_list, dataset_name):
         plt.ylabel('max memory usage (MB)')
         plt.bar(model_name_list[i], memory_usages[i])
         plt.grid(visible=True)
-    plt.savefig(f'./results/plots/memory/{dataset_name}.png')
+    plt.savefig(f'./results/plots/memory/{dataset_name}_memory_usage.png')
     mem_text.close()
     plt.clf()
 
@@ -129,7 +129,7 @@ def loadRBF(n):
 def loadAirlines():
     airlines_raw = arff.loadarff('../../datasets/airlines.arff')
     df_airlines = pd.DataFrame(airlines_raw[0])
-    #df_airlines = df_airlines.head(1000)
+    df_airlines = df_airlines.head(1000)
     keys = df_airlines.keys()
     x_keys = keys[:7]
     y_key = keys[7]
