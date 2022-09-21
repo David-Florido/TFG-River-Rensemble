@@ -71,7 +71,7 @@ print(metric)
 Accuracy: 87.76%
 ```
 
-Esto es un ejemplo sencillo de uso, para información más detallada se puede consultar la [clase principal](river/ensemble/rensemble.py). Pruebas y ejemplos se pueden localizar en [este directorio](river/ensemble/Experiments). 
+Esto es un ejemplo sencillo de uso, para información más detallada sobre su funcionamiento, significado de parámetros se puede consultar la [clase principal](river/ensemble/rensemble.py). Pruebas y ejemplos se pueden localizar en [este directorio](river/ensemble/Experiments). 
 Para ejecutar el código usado en la experimentación es necesario instalar las siguientes librerías:
 ```sh
 pip install sklearn
