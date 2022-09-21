@@ -1,13 +1,13 @@
 ## 🛠 Instalación
 Las pruebas se han realizado con **Python 3.10.4**, el cual se puede obtener en [este enlace](https://www.python.org/downloads/)
-Adicionalmente, para utilizar la librería **River** es necesario tener instalados [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+Adicionalmente, para utilizar la librería **River** es necesario tener instalados [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 
 
-Para instalar el código una vez descargado, basta con ejecutar
+Para instalar el código una vez descargado, basta con ejecutar:
 ```sh
 pip install -e {PATH} --user
 ```
-donde PATH es la ubicación hasta el directorio descomprimido "river-main"
+donde PATH es la ubicación hasta el directorio descomprimido "TFG-River-Rensemble-main".
 
 ## ⚡️  Guía rápida
 Como ejemplo, utilizaremos el [dataset de phishing](http://archive.ics.uci.edu/ml/datasets/Website+Phishing). Aquí añadimos el código necesario para cargarlo y observar la primera instancia:
@@ -66,7 +66,7 @@ print(metric)
 Accuracy: 87.76%
 ```
 
-Esto es un ejmplo sencillo de uso, para información más detallada se puede consultar la clase principal river/ensemble/rensemble.py. Pruebas y ejemplos se pueden localizar en el directorio river/ensemble/Experiments. 
+Esto es un ejmplo sencillo de uso, para información más detallada se puede consultar la [clase principal](river/ensemble/rensemble.py). Pruebas y ejemplos se pueden localizar en [este directorio](river/ensemble/Experiments). 
 Para ejecutar el código usado en la experimentación es necesario instalar las siguientes librerías:
 ```sh
 pip install sklearn
