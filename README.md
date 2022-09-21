@@ -1,3 +1,8 @@
+## ❓ Resumen del sistema
+El sistema consiste en una generalización de sistemas multiclasificadores. En él, se generan m módulos, cada uno con n clasificadores base, 1 meta-clasificador. Cada instancia será procesada de una en una por los clasificadores base, cuya predicción será añadida al resto de características y transmitida como entrada al meta-clasificador del módulo. Posteriormente se decidirá la respuesta final del sistema mediante voto ponderado de las predicciones emitidas por cada uno de estos meta-clasificadores.
+
+![esquema](https://github.com/David-Florido/TFG-River-Rensemble/blob/main/Esquema%20del%20Sistema.png?raw=true)
+
 ## 🛠 Instalación
 Las pruebas se han realizado con **Python 3.10.4**, el cual se puede obtener en [este enlace](https://www.python.org/downloads/)
 Adicionalmente, para utilizar la librería **River** es necesario tener instalados [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
